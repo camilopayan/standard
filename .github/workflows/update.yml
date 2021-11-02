@@ -29,7 +29,6 @@ jobs:
       uses: peter-evans/create-pull-request@v3
       with:
         reviewers: camilopayan
-        token: ${{ secrets.UPDATER_PAT }}
         commit-message: '[ {{ steps.date.output.date }} ] - Update dependencies'
         title: '[ {{ steps.date.output.date }} ] - Update dependencies'
         delete-branch: true
