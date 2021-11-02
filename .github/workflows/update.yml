@@ -29,7 +29,7 @@ jobs:
       uses: peter-evans/create-pull-request@v3
       with:
         reviewers: camilopayan
-        commit-message: '[ ${{ steps.date.output.date }} ] - Update dependencies'
-        title: '[ ${{ steps.date.output.date }} ] - Update dependencies'
+        commit-message: '[ ${{ steps.date.outputs.date }} ] - Update dependencies'
+        title: '[ ${{ steps.date.outputs.date }} ] - Update dependencies'
         delete-branch: true
-        branch: update-deps-${{ steps.date.output.date }}
+        branch: update-deps-${{ steps.date.outputs.date }}
