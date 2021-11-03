@@ -19,11 +19,11 @@ jobs:
       run: bundle config unset deployment
     - name: Update Changelog
       run: |
-        sed -i '2G';
+        sed -i '3G' CHANGELOG.md;
         eval "$(bundle outdated |
         grep rubocop |
         awk '{print "sed -i \"3i* Update "$1" from "$2" to ["$3"](https://github.com/rubocop/"$1"/tag/v"$3")\" CHANGELOG.md"}' - )";
-        sed -i '2i\\n## Unreleased\n' CHANGELOG.md;
+        sed -i '3i\\n## Unreleased\n' CHANGELOG.md;
     - name: Update Gemspec
       run: |
         eval "$(bundle outdated |
