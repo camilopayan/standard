@@ -22,6 +22,11 @@ jobs:
         eval "$(bundle outdated |
         grep rubocop |
         awk '{print "sed -i /\"" $1 "\"/s/" $2 "/" $3 "/ standard.gemspec"}' - )"
+    - name: Update Changelog
+      run: |
+        eval "$(bundle outdated |
+        grep rubocop |
+        awk '{print "sed -i \"3i* Update "$1" from "$2" to ["$3"](https://github.com/rubocop/"$1"/tag/v"$3")\" CHANGELOG.md"}' - )"
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
