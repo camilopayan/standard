@@ -15,7 +15,7 @@ jobs:
       with:
         ruby-version: 3.0.0
         bundler-cache: true
-    - name: Unset deployment
+    - name: Unset bundler deployment
       run: bundle config unset deployment
     - name: Update Changelog
       run: |
@@ -28,6 +28,8 @@ jobs:
         eval "$(bundle outdated |
         grep rubocop |
         awk '{print "sed -i /\"" $1 "\"/s/" $2 "/" $3 "/ standard.gemspec"}' - )"
+    - name: Update Gemfile
+      run: bundle install
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
