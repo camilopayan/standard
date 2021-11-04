@@ -22,7 +22,7 @@ jobs:
       run: |
         eval "$(bundle outdated |
         grep rubocop |
-      awk '{print "echo \"::set-output name="$1"_OLD::"$2"\"; echo \"::set-output name="$1"_NEW::"$3"\";"}' -)";
+        awk '{print "echo \"::set-output name="$1"_OLD::"$2"\"; echo \"::set-output name="$1"_NEW::"$3"\";"}' - )";
     - name: Update Changelog
       run: |
         eval "$(bundle outdated |
