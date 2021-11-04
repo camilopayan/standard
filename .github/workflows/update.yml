@@ -19,7 +19,6 @@ jobs:
       run: bundle config unset deployment
     - name: Update Changelog
       run: |
-        sed -i '2G' CHANGELOG.md;
         eval "$(bundle outdated |
         grep rubocop |
         awk '{print "sed -i \"2i* Update "$1" from "$2" to ["$3"](https://github.com/rubocop/"$1"/tag/v"$3")\" CHANGELOG.md"}' - )";
