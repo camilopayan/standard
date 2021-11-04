@@ -29,7 +29,7 @@ jobs:
         grep rubocop |
         awk '{print "sed -i /\"" $1 "\"/s/" $2 "/" $3 "/ standard.gemspec"}' - )"
     - name: Update Gemfile
-      run: bundle install
+      run: bundle update
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
